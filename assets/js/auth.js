@@ -11,9 +11,7 @@
 (function () {
   'use strict';
 
-  // SHA-256 of your owner password. Change this!
-  // Default hash below = SHA-256 of "iron-architect-2026"
-  const OWNER_KEY_HASH = 'b3c4eae5d6a3f0b4c2e3a7d1f9b5e8c4a2d7f3b9c1e6a4d8f2b0e5c9a3d7f1b';
+  const OWNER_KEY_HASH = '3bf8bca03469398e13b1af4ad847d2fff3f323fa7cdedc26aede7362babdcf1e';
   const SESSION_KEY = 'ia_owner_mode';
   const RATE_LIMIT_KEY = 'ia_auth_attempts';
   const MAX_ATTEMPTS = 5;
