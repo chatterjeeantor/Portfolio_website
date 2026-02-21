@@ -13,14 +13,6 @@
       { "code": "CSC-1-3", "title": "Linux Fundamentals",    "status": "Not Started" }
     ]
   },
-  "csCore": {
-    "progress": 35,
-    "papers": [
-      { "code": "CSC-1-1", "title": "Algorithms & Structures",  "status": "Mastered" },
-      { "code": "CSC-1-2", "title": "Systems Programming",       "status": "In Progress" },
-      { "code": "CSC-1-3", "title": "C & Assembly",              "status": "Not Started" }
-    ]
-  },
   "aai": {
     "progress": 20,
     "papers": [
