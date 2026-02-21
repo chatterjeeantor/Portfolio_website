@@ -1,0 +1,8 @@
+title: Iron Architect
+description: CS + Cybersecurity Major | Applied AI Minor — Technical Research Archive
+theme: null
+plugins: []
+exclude:
+  - README.md
+  - "*.sh"
+  - scripts/
