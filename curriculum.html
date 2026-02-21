@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self';" />
+  <title>Iron Architect — Curriculum</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-brand">
+      <div class="logo-shield" aria-hidden="true">
+        <svg width="40" height="46" viewBox="0 0 40 46" fill="none"><path d="M20 2L38 10V24C38 34 29 42 20 44C11 42 2 34 2 24V10L20 2Z" stroke="#4ade80" stroke-width="1.5" fill="none"/><path d="M20 8L32 14V24C32 31 26.5 37 20 38.5C13.5 37 8 31 8 24V14L20 8Z" fill="#0f1a12" stroke="#4ade80" stroke-width="1"/><text x="20" y="28" text-anchor="middle" fill="#4ade80" font-size="12" font-family="JetBrains Mono" font-weight="700">IA</text></svg>
+      </div>
+      <div class="header-titles">
+        <h1 class="project-title">IRON ARCHITECT DASHBOARD</h1>
+        <p class="project-subtitle">2026 Cybersecurity &amp; Applied AI Curriculum</p>
+      </div>
+    </div>
+    <div class="header-system">
+      <span class="sys-line">System: Zorin OS + Hornet + Butterfly</span>
+      <span class="sys-sep">|</span>
+      <span class="sys-line">RAM: 4GB</span>
+      <div class="auth-controls">
+        <span id="mode-badge" class="mode-badge public">PUBLIC</span>
+        <button id="auth-toggle" class="btn-auth" aria-label="Toggle owner mode">⚿</button>
+      </div>
+    </div>
+  </header>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-link">Dashboard</a>
+    <a href="curriculum.html" class="nav-link active">Curriculum</a>
+    <a href="labs.html" class="nav-link">Labs</a>
+    <a href="research.html" class="nav-link">Research</a>
+    <a href="tools.html" class="nav-link">Tools</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </nav>
+
+  <div class="page-header">
+    <p class="breadcrumb"><a href="index.html">Dashboard</a> / Curriculum</p>
+    <h1>Curriculum Index</h1>
+    <p>8 semesters — CS + Cybersecurity Major | Applied AI Minor</p>
+  </div>
+
+  <main class="dashboard" id="main-content">
+    <div class="panel">
+      <div class="curriculum-controls" role="group" aria-label="Filter papers">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="CSC">CSC</button>
+        <button class="filter-btn" data-filter="AAI">AAI</button>
+        <button class="filter-btn" data-filter="TH">Theory</button>
+        <button class="filter-btn" data-filter="PR">Practical</button>
+        <button class="filter-btn" data-filter="Mastered">Mastered</button>
+        <button class="filter-btn" data-filter="In Progress">In Progress</button>
+        <button class="filter-btn" data-filter="Not Started">Not Started</button>
+      </div>
+
+      <table class="curriculum-table" aria-label="Curriculum papers">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Title</th>
+            <th>Track</th>
+            <th>Type</th>
+            <th>Semester</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="curriculum-tbody">
+          <tr><td colspan="6" class="activity-item loading" style="padding:20px;">Loading curriculum...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="auth-modal" class="modal" role="dialog" aria-modal="true" hidden>
+    <div class="modal-box">
+      <h2 class="modal-title">Owner Authentication</h2>
+      <p class="modal-desc">Enter owner key to unlock private content.</p>
+      <input type="password" id="auth-input" class="auth-input" placeholder="Owner key..." autocomplete="current-password" />
+      <div class="modal-actions">
+        <button id="auth-submit" class="btn-primary">Authenticate</button>
+        <button id="auth-cancel" class="btn-ghost">Cancel</button>
+      </div>
+      <p id="auth-error" class="auth-error" hidden>Invalid key.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>Iron Architect © 2026</span>
+    <span class="footer-sep">|</span>
+    <span id="footer-mode">Mode: Public</span>
+  </footer>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script src="assets/js/curriculum.js"></script>
+</body>
+</html>
