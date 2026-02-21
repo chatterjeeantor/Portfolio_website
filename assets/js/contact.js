@@ -14,7 +14,7 @@
 
   // ── CONFIGURATION ──
   // Replace with your Formspree endpoint: https://formspree.io/f/YOUR_FORM_ID
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mqedypry';
 
   // Rate limiting: one submission per N milliseconds (client-side)
   const RATE_LIMIT_MS = 60 * 1000; // 1 minute
