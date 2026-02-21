@@ -151,6 +151,11 @@ body {
 }
 .nav-link:hover  { color: var(--text-primary); border-color: var(--border-bright); }
 .nav-link.active { color: var(--accent-green); border-color: var(--accent-green); }
+.nav-link.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 
 /* ── MAIN / DASHBOARD ── */
 .dashboard {
