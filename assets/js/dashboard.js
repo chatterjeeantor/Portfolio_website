@@ -165,9 +165,6 @@
     setProgress('csc-sec-pct', 'csc-sec-bar', data.cscSec.progress);
     renderPaperList($('csc-sec-papers'), data.cscSec.papers);
 
-    setProgress('cs-core-pct', 'cs-core-bar', data.csCore.progress);
-    renderPaperList($('cs-core-papers'), data.csCore.papers);
-
     setProgress('aai-pct', 'aai-bar', data.aai.progress);
     renderPaperList($('aai-papers'), data.aai.papers);
 
