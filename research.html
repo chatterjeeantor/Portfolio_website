@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iron Architect — Research</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-brand">
+      <div class="logo-shield" aria-hidden="true">
+        <svg width="40" height="46" viewBox="0 0 40 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 2L38 10V24C38 34 29 42 20 44C11 42 2 34 2 24V10L20 2Z" stroke="#4ade80" stroke-width="1.5" fill="none"/>
+          <path d="M20 8L32 14V24C32 31 26.5 37 20 38.5C13.5 37 8 31 8 24V14L20 8Z" fill="#0f1a12" stroke="#4ade80" stroke-width="1"/>
+          <text x="20" y="28" text-anchor="middle" fill="#4ade80" font-size="12" font-family="JetBrains Mono" font-weight="700">IA</text>
+        </svg>
+      </div>
+      <div class="header-titles">
+        <h1 class="project-title">IRON ARCHITECT DASHBOARD</h1>
+        <p class="project-subtitle">2026 Cybersecurity &amp; Applied AI Curriculum</p>
+      </div>
+    </div>
+    <div class="header-system">
+      <span class="sys-line">System: Zorin OS + Hornet + Butterfly</span>
+      <span class="sys-sep">|</span>
+      <span class="sys-line">RAM: 4GB</span>
+      <div class="auth-controls">
+        <span id="mode-badge" class="mode-badge public">PUBLIC</span>
+        <button id="auth-toggle" class="btn-auth" aria-label="Toggle owner mode">⚿</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-link">Dashboard</a>
+    <a href="curriculum.html" class="nav-link">Curriculum</a>
+    <a href="labs.html" class="nav-link">Labs</a>
+    <a href="research.html" class="nav-link active">Research</a>
+    <a href="tools.html" class="nav-link">Tools</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </nav>
+
+  <main class="dashboard">
+    <div class="panel" style="text-align:center; padding:64px 32px;">
+      <p style="font-size:32px; margin-bottom:16px;">📄</p>
+      <h2 style="font-family:var(--font-display); color:#e6edf3; margin-bottom:8px;">
+        Research Archive
+      </h2>
+      <p style="color:var(--text-muted); font-size:12px; margin-bottom:24px;">
+        Coming Semester 2. Papers are written in Obsidian and will appear here when published.
+      </p>
+      <a href="index.html" class="btn-secondary">← Back to Dashboard</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Iron Architect © 2026</span>
+    <span class="footer-sep">|</span>
+    <span id="footer-mode">Mode: Public</span>
+  </footer>
+
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>
