@@ -12,7 +12,7 @@
   metrics: { labs: 0, papers: 0, tools: 0, certs: '0' },
   cscSec:  { progress: 0, papers: [] },
   aai:     { progress: 0, papers: [] },
-  semester: { current: 1, name: 'THE BRIDGE', timeline: [] },
+  semester: { current: 0, name: '', timeline: [] },
   recentLabs: [],
   recentResearch: [],
   certifications: []
