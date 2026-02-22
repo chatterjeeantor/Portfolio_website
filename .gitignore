@@ -1,0 +1,9 @@
+# Obsidian workspace settings
+.obsidian/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
