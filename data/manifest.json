@@ -1,48 +1,24 @@
 {
   "metrics": {
-    "labs": 12,
-    "papers": 7,
-    "tools": 3,
-    "certs": "2 (Sec+, OSCP)"
+    "labs": 0,
+    "papers": 0,
+    "tools": 0,
+    "certs": "0"
   },
   "cscSec": {
-    "progress": 28,
-    "papers": [
-      { "code": "CSC-1-1", "title": "Computer Architecture", "status": "Mastered" },
-      { "code": "CSC-1-2", "title": "Low-Level Logic",       "status": "In Progress" },
-      { "code": "CSC-1-3", "title": "Linux Fundamentals",    "status": "Not Started" }
-    ]
+    "progress": 0,
+    "papers": []
   },
   "aai": {
-    "progress": 20,
-    "papers": [
-      { "code": "AAI-1-1", "title": "Math Foundations",          "status": "In Progress" },
-      { "code": "AAI-1-2", "title": "Intro to Machine Learning", "status": "Not Started" },
-      { "code": "AAI-1-3", "title": "AI Security Basics",        "status": "Not Started" }
-    ]
+    "progress": 0,
+    "papers": []
   },
   "semester": {
-    "current": 1,
-    "name": "THE BRIDGE",
-    "timeline": [
-      { "code": "CSC-1-1", "title": "Computer Architecture & Systems Engineering", "current": false },
-      { "code": "CSC-1-2", "title": "Low-Level Logic & Problem Solving",           "current": false },
-      { "code": "AAI-1-1", "title": "Mathematical Foundations of Intelligence",    "current": true }
-    ]
+    "current": 0,
+    "name": "",
+    "timeline": []
   },
-  "recentLabs": [
-    { "title": "Buffer Overflow Exploit" },
-    { "title": "Network Sniffing Tool" },
-    { "title": "Basic Neural Network" }
-  ],
-  "recentResearch": [
-    { "title": "Reverse Engineering Linux Binaries", "version": "v1.2" },
-    { "title": "Securing AI Model Pipelines",        "version": "v1.0" },
-    { "title": "Threat Analysis of IoT Devices",     "version": "" }
-  ],
-  "certifications": [
-    { "name": "Security+", "done": true },
-    { "name": "OSCP",      "done": true },
-    { "name": "CISSP",     "done": false }
-  ]
+  "recentLabs": [],
+  "recentResearch": [],
+  "certifications": []
 }
