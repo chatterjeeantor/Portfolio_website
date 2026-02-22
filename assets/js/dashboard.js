@@ -9,16 +9,14 @@
 
   // ── Static demo data (replaced by fetched manifests in production) ──
   const DEMO_DATA = {
-    metrics: { labs: 12, papers: 7, tools: 3, certs: '2 (Sec+, OSCP)' },
-
-    cscSec: {
-      progress: 28,
-      papers: [
-        { code: 'CSC-1-1', title: 'Computer Architecture', status: 'Mastered' },
-        { code: 'CSC-1-2', title: 'Low-Level Logic', status: 'In Progress' },
-        { code: 'CSC-1-3', title: 'Linux Fundamentals', status: 'Not Started' },
-      ]
-    },
+  metrics: { labs: 0, papers: 0, tools: 0, certs: '0' },
+  cscSec:  { progress: 0, papers: [] },
+  aai:     { progress: 0, papers: [] },
+  semester: { current: 1, name: 'THE BRIDGE', timeline: [] },
+  recentLabs: [],
+  recentResearch: [],
+  certifications: []
+};
 
     csCore: {
       progress: 35,
