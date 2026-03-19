@@ -340,6 +340,9 @@ body {
   padding: 0 16px;
   position: relative;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 .timeline-item:not(:last-child)::after {
   content: '•';
@@ -351,12 +354,13 @@ body {
 .timeline-item.current .tl-code { color: var(--accent-green); }
 
 .timeline-dot {
-  display: block;
+  display: inline-block;
   width: 8px;
   height: 8px;
   background: var(--accent-green);
   border-radius: 50%;
-  margin: 8px auto 0;
+  margin-left: 6px;
+  vertical-align: middle;
   box-shadow: 0 0 6px var(--accent-green);
 }
 
