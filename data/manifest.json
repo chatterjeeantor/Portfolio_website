@@ -7,18 +7,64 @@
   },
   "cscSec": {
     "progress": 0,
-    "papers": []
+    "papers": [
+      {
+        "code": "CSC-1-1",
+        "title": "Computer Architecture & Systems Engineering",
+        "status": "Not Started"
+      },
+      {
+        "code": "CSC-1-2",
+        "title": "Low-Level Logic & Problem Solving",
+        "status": "Not Started"
+      }
+    ]
   },
   "aai": {
     "progress": 0,
-    "papers": []
+    "papers": [
+      {
+        "code": "AAI-1-1",
+        "title": "Mathematical Foundations of Intelligence",
+        "status": "Not Started"
+      }
+    ]
   },
   "semester": {
-    "current": 0,
-    "name": "",
-    "timeline": []
+    "current": 1,
+    "name": "THE BRIDGE",
+    "timeline": [
+      {
+        "code": "CSC-1-1",
+        "title": "Computer Architecture & Systems Engineering",
+        "current": false
+      },
+      {
+        "code": "CSC-1-2",
+        "title": "Low-Level Logic & Problem Solving",
+        "current": false
+      },
+      {
+        "code": "AAI-1-1",
+        "title": "Mathematical Foundations of Intelligence",
+        "current": true
+      }
+    ]
   },
   "recentLabs": [],
   "recentResearch": [],
-  "certifications": []
+  "certifications": [
+    {
+      "name": "CompTIA Security+",
+      "done": false
+    },
+    {
+      "name": "OSCP",
+      "done": false
+    },
+    {
+      "name": "CISSP",
+      "done": false
+    }
+  ]
 }
