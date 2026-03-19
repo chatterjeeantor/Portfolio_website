@@ -11,7 +11,7 @@
 (function () {
   'use strict';
 
-  const OWNER_KEY_HASH = '3bf8bca03469398e13b1af4ad847d2fff3f323fa7cdedc26aede7362babdcf1e';
+  const OWNER_KEY_HASH = '29ee34787a6d9bc8f32393ee44ef7ded11d18a7dbc4dc0a21fdc431bc565836c';
   const SESSION_KEY = 'ia_owner_mode';
   const RATE_LIMIT_KEY = 'ia_auth_attempts';
   const MAX_ATTEMPTS = 5;
