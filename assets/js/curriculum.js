@@ -20,8 +20,8 @@
     if (!isVisible(p)) return '';
     return `
       <tr data-track="${p.track}" data-type="${p.type}" data-status="${p.status}">
-        <td class="code-cell"><a href="paper.html?code=${encodeURIComponent(p.code)}">${p.code}</a></td>
-        <td><a href="paper.html?code=${encodeURIComponent(p.code)}">${p.title}</a></td>
+        <td class="code-cell">${p.code}</td>
+	<td>${p.title}</td>
         <td>${p.track}</td>
         <td>${p.type === 'TH' ? 'Theory' : 'Practical'}</td>
         <td>Semester ${p.semester}</td>

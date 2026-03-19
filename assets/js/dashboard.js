@@ -43,7 +43,7 @@
       <li class="paper-item">
         <span>
           <span class="paper-code">${p.code}:</span>
-          <a href="paper.html?code=${encodeURIComponent(p.code)}">${p.title}</a>
+          ${p.title}
         </span>
         ${statusBadge(p.status)}
       </li>

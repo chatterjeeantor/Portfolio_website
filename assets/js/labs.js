@@ -6,32 +6,7 @@
 (function () {
   'use strict';
 
-  const DEMO_LABS = [
-    {
-      code: 'CSC-1-1-PR', title: 'Buffer Overflow Exploit',
-      difficulty: 'Advanced', track: 'CSC', semester: 1,
-      description: 'Stack-based buffer overflow on a vulnerable x86-64 binary. Develop shellcode and bypass basic stack protections.',
-      tags: ['exploit', 'memory', 'gdb', 'pwntools'], visibility: 'private'
-    },
-    {
-      code: 'CSC-1-2-PR', title: 'Network Sniffing Tool',
-      difficulty: 'Intermediate', track: 'CSC', semester: 1,
-      description: 'Passive network traffic capture and protocol analysis using raw sockets and libpcap on Hornet (Debian CLI).',
-      tags: ['networking', 'pcap', 'python', 'scapy'], visibility: 'public'
-    },
-    {
-      code: 'AAI-1-1-PR', title: 'Basic Neural Network',
-      difficulty: 'Beginner', track: 'AAI', semester: 1,
-      description: 'Implement a feedforward neural network from scratch in Python (NumPy only). Train on MNIST digit dataset.',
-      tags: ['ml', 'numpy', 'classification', 'python'], visibility: 'public'
-    },
-    {
-      code: 'CSC-1-3-PR', title: 'Linux Privilege Escalation',
-      difficulty: 'Advanced', track: 'CSC', semester: 1,
-      description: 'Enumerate and exploit common Linux privilege escalation vectors: SUID bits, cron jobs, writable /etc/passwd.',
-      tags: ['privesc', 'linux', 'bash', 'enumeration'], visibility: 'private'
-    },
-  ];
+  const DEMO_LABS = [];
 
   const grid       = document.getElementById('labs-grid');
   const filterBtns = document.querySelectorAll('.filter-btn');
