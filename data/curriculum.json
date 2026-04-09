@@ -1,5 +1,5 @@
 [
-  { "code": "CSC-1-1", "title": "Computer Architecture & Systems Engineering", "semester": 1, "track": "CSC", "status": "Started" },
+  { "code": "CSC-1-1", "title": "Computer Architecture & Systems Engineering", "semester": 1, "track": "CSC", "status": "IN PROGRESS" },
   { "code": "CSC-1-2", "title": "Low-Level Logic & Problem Solving", "semester": 1, "track": "CSC", "status": "Not Started" },
   { "code": "AAI-1-1", "title": "Mathematical Foundations of Intelligence", "semester": 1, "track": "AAI", "status": "Not Started" },
   { "code": "CSC-2-1", "title": "Rust Systems Programming", "semester": 2, "track": "CSC", "status": "Not Started" },
