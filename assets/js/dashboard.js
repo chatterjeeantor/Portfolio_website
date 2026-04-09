@@ -18,7 +18,16 @@
   };
 
   const $ = (id) => document.getElementById(id);
-  const { statusBadge } = window.IronArchContent;
+
+  function statusBadge(status) {
+    const map = {
+      'Mastered':    'status-mastered',
+      'In Progress': 'status-inprogress',
+      'Not Started': 'status-notstarted'
+    };
+    const cls = map[status] || 'status-notstarted';
+    return `<span class="${cls}">${status || 'Not Started'}</span>`;
+  }
 
   function setMetric(key, value) {
     const el = document.querySelector(`[data-metric="${key}"]`);
@@ -62,22 +71,17 @@
   function renderRecentLabs(items) {
     const el = $('recent-labs');
     if (!el) return;
-    el.innerHTML = items.map(item => `
-      <li class="activity-item">
-        <a href="labs.html">${item.title}</a>
-      </li>
-    `).join('');
+    el.innerHTML = items.length
+      ? items.map(item => `<li class="activity-item"><a href="labs.html">${item.title}</a></li>`).join('')
+      : '<li class="activity-item" style="color:var(--text-muted);font-size:12px;">No labs logged yet.</li>';
   }
 
   function renderRecentResearch(items) {
     const el = $('recent-research');
     if (!el) return;
-    el.innerHTML = items.map(item => `
-      <li class="activity-item">
-        <a href="research.html">${item.title}</a>
-        ${item.version ? `<span class="item-version">(${item.version})</span>` : ''}
-      </li>
-    `).join('');
+    el.innerHTML = items.length
+      ? items.map(item => `<li class="activity-item"><a href="research.html">${item.title}</a>${item.version ? `<span class="item-version">(${item.version})</span>` : ''}</li>`).join('')
+      : '<li class="activity-item" style="color:var(--text-muted);font-size:12px;">Research archive opens Semester 2.</li>';
   }
 
   function renderCerts(certs) {
@@ -122,7 +126,8 @@
     let data = DEMO_DATA;
 
     try {
-      const manifest = await window.IronArchContent.fetchManifest('data/manifest.json');
+      const res = await fetch('data/manifest.json');
+      const manifest = await res.json();
       if (manifest && manifest.metrics) data = manifest;
     } catch {
       // Use demo data silently
