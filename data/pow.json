@@ -1,0 +1,12 @@
+{
+  "pow": [
+    {
+      "code": "CSC-1-1",
+      "title": "Computer Architecture — notes review pass",
+      "track": "CSC",
+      "semester": 1,
+      "date": "2026-04-01",
+      "description": "Completed first full review of architecture notes. Covered CPU pipeline, memory hierarchy, and cache."
+    }
+  ]
+}

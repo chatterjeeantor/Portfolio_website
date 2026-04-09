@@ -11,7 +11,7 @@
       {
         "code": "CSC-1-1",
         "title": "Computer Architecture & Systems Engineering",
-        "status": "Not Started"
+        "status": "Started"
       },
       {
         "code": "CSC-1-2",
@@ -37,7 +37,7 @@
       {
         "code": "CSC-1-1",
         "title": "Computer Architecture & Systems Engineering",
-        "current": false
+        "current": true
       },
       {
         "code": "CSC-1-2",
@@ -47,7 +47,7 @@
       {
         "code": "AAI-1-1",
         "title": "Mathematical Foundations of Intelligence",
-        "current": true
+        "current": false
       }
     ]
   },

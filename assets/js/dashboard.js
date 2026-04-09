@@ -7,18 +7,16 @@
 (function () {
   'use strict';
 
-  // ── Static demo data (replaced by fetched manifests in production) ──
   const DEMO_DATA = {
-  metrics: { labs: 0, papers: 0, tools: 0, certs: '0' },
-  cscSec:  { progress: 0, papers: [] },
-  aai:     { progress: 0, papers: [] },
-  semester: { current: 0, name: '', timeline: [] },
-  recentLabs: [],
-  recentResearch: [],
-  certifications: []
-};
+    metrics: { labs: 0, papers: 0, tools: 0, certs: '0' },
+    cscSec:  { progress: 0, papers: [] },
+    aai:     { progress: 0, papers: [] },
+    semester: { current: 0, name: '', timeline: [] },
+    recentLabs: [],
+    recentResearch: [],
+    certifications: []
+  };
 
-  // ── Helpers ──
   const $ = (id) => document.getElementById(id);
   const { statusBadge } = window.IronArchContent;
 
@@ -28,7 +26,7 @@
   }
 
   function setProgress(pctEl, barEl, progress) {
-    const p = $( pctEl);
+    const p = $(pctEl);
     const b = $(barEl);
     if (p) p.textContent = `Progress: ${progress}%`;
     if (b) {
@@ -53,7 +51,7 @@
   function renderTimeline(data) {
     const el = $('sem-timeline');
     if (!el) return;
-    el.innerHTML = data.timeline.map((item, i) => `
+    el.innerHTML = data.timeline.map((item) => `
       <div class="timeline-item${item.current ? ' current' : ''}">
         <span class="tl-code">${item.code}:</span> ${item.title}
         ${item.current ? '<span class="timeline-dot" aria-label="Current position"></span>' : ''}
@@ -95,7 +93,31 @@
     `).join('');
   }
 
-  // ── Attempt to load live data manifest, fall back to demo ──
+  function loadRecentPoW() {
+    var container = $('recent-pow');
+    if (!container) return;
+    fetch('data/pow.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var entries = (data.pow || []).slice(0, 3);
+        if (!entries.length) {
+          container.innerHTML = '<li class="activity-item" style="color:var(--text-muted);font-size:12px;">No proof of work logged yet.</li>';
+          return;
+        }
+        container.innerHTML = '';
+        entries.forEach(function (e) {
+          var li = document.createElement('li');
+          li.className = 'activity-item';
+          var d = e.date ? new Date(e.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+          li.innerHTML = '<span class="paper-code">' + e.code + '</span> ' + (e.title || e.description || '') + '<span style="float:right;font-size:11px;color:var(--text-muted);">' + d + '</span>';
+          container.appendChild(li);
+        });
+      })
+      .catch(function () {
+        container.innerHTML = '<li class="activity-item">Failed to load.</li>';
+      });
+  }
+
   async function loadDashboard() {
     let data = DEMO_DATA;
 
@@ -106,34 +128,29 @@
       // Use demo data silently
     }
 
-    // Metrics
     setMetric('labs',   data.metrics.labs);
     setMetric('papers', data.metrics.papers);
     setMetric('tools',  data.metrics.tools);
     setMetric('certs',  data.metrics.certs);
 
-    // Curriculum panels
     setProgress('csc-sec-pct', 'csc-sec-bar', data.cscSec.progress);
     renderPaperList($('csc-sec-papers'), data.cscSec.papers);
 
     setProgress('aai-pct', 'aai-bar', data.aai.progress);
     renderPaperList($('aai-papers'), data.aai.papers);
 
-    // Timeline
     renderTimeline(data.semester);
-
-    // Activity
     renderRecentLabs(data.recentLabs);
     renderRecentResearch(data.recentResearch);
-
-    // Certs
     renderCerts(data.certifications);
+
+    loadRecentPoW();
   }
 
-  // ── Init ──
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadDashboard);
   } else {
     loadDashboard();
   }
+
 })();
