@@ -1,74 +1,63 @@
 /**
  * curriculum.js — Iron Architect
- * Loads curriculum manifest and renders filterable table.
+ * Loads curriculum.json and renders filterable table.
  */
 
 (function () {
   'use strict';
 
-  // Demo data — in production, fetch from data/curriculum.json
-  const DEMO_LABS = [];
+  var tbody = document.getElementById('curriculum-tbody');
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var activeFilter = 'all';
+  var papers = [];
 
-  const tbody = document.getElementById('curriculum-tbody');
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  let activeFilter = 'all';
-  let papers = [];
+  function statusClass(s) {
+    if (s === 'Mastered') return 'status-mastered';
+    if (s === 'In Progress' || s === 'Started') return 'status-inprogress';
+    return 'status-notstarted';
+  }
 
-  const { statusBadge, isVisible } = window.IronArchContent;
-
-  function renderRow(p) {
-    if (!isVisible(p)) return '';
-    return `
-      <tr data-track="${p.track}" data-type="${p.type}" data-status="${p.status}">
-        <td class="code-cell">${p.code}</td>
-	<td>${p.title}</td>
-        <td>${p.track}</td>
-        <td>${p.type === 'TH' ? 'Theory' : 'Practical'}</td>
-        <td>Semester ${p.semester}</td>
-        <td>${statusBadge(p.status)}</td>
-      </tr>
-    `;
+  function renderRows(list) {
+    if (!tbody) return;
+    if (!list.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="padding:20px;color:var(--text-muted);text-align:center;">No papers match this filter.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = list.map(function (p) {
+      return '<tr>' +
+        '<td class="code-cell">' + p.code + '</td>' +
+        '<td>' + p.title + '</td>' +
+        '<td><span class="track-tag">' + p.track + '</span></td>' +
+        '<td>Semester ' + p.semester + '</td>' +
+        '<td><span class="' + statusClass(p.status) + '">' + p.status + '</span></td>' +
+        '</tr>';
+    }).join('');
   }
 
   function applyFilter() {
-    if (!tbody) return;
-    let visible = papers;
-    if (activeFilter !== 'all') {
-      visible = papers.filter(p => {
-        return p.track === activeFilter ||
-               p.type  === activeFilter ||
-               p.status === activeFilter;
-      });
-    }
-    tbody.innerHTML = visible.map(renderRow).join('') ||
-      `<tr><td colspan="6" style="color:var(--text-dim);padding:20px;text-align:center;">No papers match this filter.</td></tr>`;
+    if (activeFilter === 'all') { renderRows(papers); return; }
+    renderRows(papers.filter(function (p) {
+      return p.track === activeFilter || p.status === activeFilter;
+    }));
   }
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
       activeFilter = btn.dataset.filter;
       applyFilter();
     });
   });
 
-  async function loadCurriculum() {
-    try {
-      const manifest = await window.IronArchContent.fetchManifest('data/curriculum.json');
-      papers = manifest.length ? manifest : DEMO_PAPERS;
-    } catch {
-      papers = DEMO_PAPERS;
-    }
-    applyFilter();
-  }
+  fetch('data/curriculum.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      papers = Array.isArray(data) ? data : (data.papers || []);
+      applyFilter();
+    })
+    .catch(function () {
+      if (tbody) tbody.innerHTML = '<tr><td colspan="5" style="padding:20px;">Failed to load curriculum data.</td></tr>';
+    });
 
-  loadCurriculum();
-
-  // Re-render when auth changes (owner mode toggle shows private papers)
-  document.addEventListener('click', (e) => {
-    if (e.target && e.target.id === 'auth-toggle') {
-      setTimeout(applyFilter, 100);
-    }
-  });
 })();
